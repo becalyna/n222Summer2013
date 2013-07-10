@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<!-- REBECCA LYNCH -->
+<!-- N222 -->
+<!-- 7/10/13 -->
+
+  <head>
+	<meta charset="UTF-8">
+	<title>UI Animation</title>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript">
+        
+			$(document).ready(function(e) {
+			
+				// creating 5 squares inside <div class="box">
+				for( var i = 0; i < 5; i++ ) {
+						// creating id's for each current square
+						var cur_square = "s" + i;
+						$(".box").append("<div id='" + cur_square + "' class='square'></div>");
+						
+						// attaching mouseover function to animate (i.e., scale square & modify opacity)
+						$("#" + cur_square).mouseover(function(e) {
+							$(this).css("opacity", .5).animate(
+								{
+									height:120,
+									width:120
+								}, 
+								700)
+						});
+						
+						// return square to original state on mouseout
+						$("#" + cur_square).mouseout(function(e) {
+							$(this).css("opacity", 1).animate(
+								{
+									height:100,
+									width:100
+								}, 
+								700)
+						});
+				}
+			});									
+        </script>
+        
+		<style type="text/css">
+			.square {
+			  margin:50px;
+			  width:100px;
+			  height:100px;
+			  background:#FF0000;
+			  float:left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box"></div>	
+    </body>
+</html>
